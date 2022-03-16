@@ -1,8 +1,8 @@
 ---
 
 - name: Server Patching
-  hosts: chef
-  remote_user: pam-schour
+  hosts: ANSIBLE
+  remote_user: myid
   become: yes
   become_method: su
   become_flags: "-"
