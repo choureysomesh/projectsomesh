@@ -1,0 +1,15 @@
+---
+
+- name: Server Patching
+  hosts: chef
+  remote_user: pam-schour
+  become: yes
+  become_method: su
+  become_flags: "-"
+  tasks:
+  - name: Updating packages
+    shell: |
+      yum repolist
+      cp /etc/fstab /etc/fstab_$(date +"%m-%d-%y")
+      sed -i '/ nfs /s/^/#/' /etc/fstab
+      yum update -y
